@@ -1,2 +1,3 @@
 # angular-keydown
-Angular service for keydown detection 
+Angular service for keydown detection
+
