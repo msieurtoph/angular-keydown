@@ -1,0 +1,12 @@
+{
+  "name": "angular-keydown-gh-pages",
+  "version": "1.0.0",
+  "description": "github pages for angular-keydown module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msieurtoph/angular-keydown.git#gh-pages"
+  },
+  "dependencies": {
+    "angular": "^1.4.8"
+  }
+}
