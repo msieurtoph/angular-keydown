@@ -54,15 +54,14 @@ module.exports = function (grunt) {
       unit: {
         frameworks: ['jasmine'],
         singleRun: true,
-        browsers: ['PhantomJS','Firefox', 'Chrome'],
-        // browsers: ['PhantomJS'],
+        browsers: ['PhantomJS','Firefox'/*, 'Chrome'*/],
         reporters: ['spec', 'coverage'],
         // logLevel: 'DEBUG',
         plugins: [
           'karma-spec-reporter',
           'karma-jasmine',
           'karma-phantomjs-launcher',
-          'karma-chrome-launcher',
+          // 'karma-chrome-launcher',
           'karma-firefox-launcher',
           'karma-coverage'
         ],
@@ -74,17 +73,7 @@ module.exports = function (grunt) {
           reporters: [
             { type: 'lcov', subdir: 'report-lcov' }
           ]
-        },
-        customLaunchers: {
-            'Chrome_travis_ci': {
-                base: 'Chrome',
-                flags: ['--no-sandbox']
-            }
-        },
-
-        // Continuous Integration mode
-        // if true, Karma captures browsers, runs the tests and exits
-        //singleRun: false
+        }
       }
     }
   });
