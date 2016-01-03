@@ -6,9 +6,9 @@ Angular service for keydown detection
 
 [![devDependency Status](http://img.shields.io/david/dev/msieurtoph/angular-keydown.svg?style=flat)](https://david-dm.org/msieurtoph/angular-keydown#info=devDependencies)
 
-## What is it?
 
 Sometimes, it could be useful to detect a pressed key during a click or another event. Let's say you have a validation button. It would rock if it pops up a confirmation message when you click on it, but not if you hold the shift key, right ?
+
 Angular-keydown makes it really easy!
 
 ## Demos & usage
