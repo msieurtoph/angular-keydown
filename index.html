@@ -36,8 +36,7 @@
 
       <div class="clearfix">
 
-        <h3>
-<a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>angular service for keydown detection.</h3>
+        <h3><a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>angular service for keydown detection.</h3>
         <div class="row">
 
           <aside class="col-sm-3">
@@ -60,34 +59,33 @@
       </div>
 
       <div class="clearfix">
-        <h3>
-<a id="keydown-click" class="anchor" href="#keydown-click" aria-hidden="true"><span class="octicon octicon-link"></span></a>detect keydown + click.</h3>
+        <h3><a id="keydown-click" class="anchor" href="#keydown-click" aria-hidden="true"><span class="octicon octicon-link"></span></a>detect keydown + click.</h3>
         <div class="row">
 
           <aside class="col-sm-3">
-  <div ng-controller="keydownClickCtrl as ctrl">
-    <button ng-click="ctrl.click()" class="btn btn-primary">
-      Hold <code>shift</code>, <code>ctrl</code>, <code>alt</code><br> ... and click me.
-    </button>
-    <p>You held:</p>
-    <ul>
-      <li ng-show="ctrl.Keydown.shift"><code>shift</code></li>
-      <li ng-show="ctrl.Keydown.ctrl"><code>ctrl</code></li>
-      <li ng-show="ctrl.Keydown.alt"><code>alt</code></li>
-    </ul>
-    Pressed keys were :
-    <pre>{{ctrl.Keydown.pressed}}</pre>
-  </div>
+            <div ng-controller="keydownClickCtrl as ctrl">
+              <button ng-click="ctrl.click()" class="btn btn-primary">
+                Hold <code>shift</code>, <code>ctrl</code>, <code>alt</code><br> ... and click me.
+              </button>
+              <p>You held:</p>
+              <ul>
+                <li ng-show="ctrl.Keydown.shift"><code>shift</code></li>
+                <li ng-show="ctrl.Keydown.ctrl"><code>ctrl</code></li>
+                <li ng-show="ctrl.Keydown.alt"><code>alt</code></li>
+              </ul>
+              Pressed keys were :
+              <pre>{{ctrl.Keydown.pressed}}</pre>
+            </div>
 
-  <script>
-    app.controller('keydownClickCtrl', ['Keydown', '$timeout', function(Keydown, $timeout){
-      this.Keydown = Keydown;
-      this.click = function(){
-        // You need to process a digest cycle to update the DOM
-        $timeout(angular.noop);
-      }
-    }]);
-  </script>
+            <script>
+              app.controller('keydownClickCtrl', ['Keydown', '$timeout', function(Keydown, $timeout){
+                this.Keydown = Keydown;
+                this.click = function(){
+                  // You need to process a digest cycle to update the DOM
+                  $timeout(angular.noop);
+                }
+              }]);
+            </script>
           </aside>
 
           <section class="col-sm-9" ng-non-bindable>
@@ -96,32 +94,30 @@
         </div>
       </div>
 
-
       <div class="clearfix">
-        <h3>
-<a id="track-keyboard" class="anchor" href="#track-keyboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>track keyboard</h3>
+        <h3><a id="track-keyboard" class="anchor" href="#track-keyboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>track keyboard</h3>
         <div class="row">
 
           <aside class="col-sm-3">
-  <div ng-controller="keyboardHighlightCtrl as ctrl">
-    <input type="text" ng-keydown="ctrl.ngKeydown()"  placeholder="Type some characters..."/>
-    <p style="word-break: break-word">
-      <code ng-repeat="key in ctrl.abc" ng-class="{active: -1 !== ctrl.Keydown.pressed.indexOf(key.code)}">{{key.char}}</code>
-      <code ng-repeat="key in ctrl.specials" ng-class="{active: ctrl.Keydown[key]}">{{key}}</code>
-    </p>
-  </div>
+            <div ng-controller="keyboardHighlightCtrl as ctrl">
+              <input type="text" ng-keydown="ctrl.ngKeydown()"  placeholder="Type some characters..."/>
+              <p style="word-break: break-word">
+                <code ng-repeat="key in ctrl.abc" ng-class="{active: -1 !== ctrl.Keydown.pressed.indexOf(key.code)}">{{key.char}}</code>
+                <code ng-repeat="key in ctrl.specials" ng-class="{active: ctrl.Keydown[key]}">{{key}}</code>
+              </p>
+            </div>
 
-  <script>
-    app.controller('keyboardHighlightCtrl', ['Keydown', '$timeout', function(Keydown, $timeout){
-      this.Keydown = Keydown;
-      this.ngKeydown = function(){
-        // You need to process a digest cycle to update the DOM
-        $timeout(angular.noop);
-      }
-      this.abc = 'abcdefghijklmnopqrstuvwxyz'.split('').map(function(e, i){return {char:e, code:65+i};});
-      this.specials = ['shift', 'space', 'escape', 'left','right'];
-    }]);
-  </script>
+            <script>
+              app.controller('keyboardHighlightCtrl', ['Keydown', '$timeout', function(Keydown, $timeout){
+                this.Keydown = Keydown;
+                this.ngKeydown = function(){
+                  // You need to process a digest cycle to update the DOM
+                  $timeout(angular.noop);
+                }
+                this.abc = 'abcdefghijklmnopqrstuvwxyz'.split('').map(function(e, i){return {char:e, code:65+i};});
+                this.specials = ['shift', 'space', 'escape', 'left','right'];
+              }]);
+            </script>
           </aside>
 
           <section class="col-sm-9" ng-non-bindable>
@@ -130,65 +126,6 @@
         </div>
       </div>
 
-      <div class="clearfix">
-        <h3>
-<a id="use-arrows" class="anchor" href="#use-arrows" aria-hidden="true"><span class="octicon octicon-link"></span></a>use arrows</h3>
-        <div class="row">
-
-          <aside class="col-sm-3">
-  <moving-pixels style="position:relative;outline:1px solid black; display:block; height:10px; width:200px"></moving-pixels>
-  <p>Keep pressing <code>left</code> or <code>right</code> arrows to move the red block</p>
-
-  <script>
-
-    app.directive('movingPixels', [function(){
-      return {
-        restrict:'E',
-        template:'<div style="position:absolute; top:0; height:10px; width:10px; background:red" ng-style="ctrl.style"></div>',
-        controller:['Keydown', '$interval', '$document', function(Keydown, $interval, $document){
-
-          var height=10, width=200,
-            left=(10+width)/2, self=this,
-            promise
-          ;
-
-          $document.on('keydown', function(){
-            if (!promise) {
-              promise = $interval(move, 100);
-            }
-          });
-          $document.on('keyup', function(){
-            if (promise) {
-              $interval.cancel(promise);
-            }
-            promise = false;
-          });
-
-          function move(){
-            if (Keydown.left){
-              left = Math.max(0, left - 10);
-            }
-            if (Keydown.right){
-              left = Math.min(width - 10, left + 10);
-            }
-            self.style={left: left+'px'};
-          }
-
-          //first init
-          move();
-
-        }],
-        controllerAs: 'ctrl'
-      };
-    }]);
-  </script>
-          </aside>
-
-          <section class="col-sm-9" ng-non-bindable>
-            <script src="https://gist.github.com/msieurtoph/4350c92eece0f4983269.js?file=angular-keydown-use-arrows.html"></script>
-          </section>
-        </div>
-      </div>
 
     </div>
 
