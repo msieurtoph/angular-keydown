@@ -74,7 +74,17 @@ module.exports = function (grunt) {
           reporters: [
             { type: 'lcov', subdir: 'report-lcov' }
           ]
-        }
+        },
+        customLaunchers: {
+            'Chrome_travis_ci': {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        },
+
+        // Continuous Integration mode
+        // if true, Karma captures browsers, runs the tests and exits
+        //singleRun: false
       }
     }
   });
