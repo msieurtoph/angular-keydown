@@ -12,4 +12,4 @@ before_script:
   - sleep 3 # give xvfb some time to start
 
 after_script:
-  - cat ./coverage/lcov.info | codeclimate
+  - cat ./coverage/report-lcov/lcov.info | codeclimate
