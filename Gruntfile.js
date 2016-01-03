@@ -1,12 +1,17 @@
 'use strict';
 
+var loadGruntTasks = require('load-grunt-tasks'),
+  timeGrunt = require('time-grunt'),
+  jsHintStylish = require('jshint-stylish')
+;
+
 module.exports = function (grunt) {
 
   // Load grunt tasks automatically
-  require('load-grunt-tasks')(grunt);
+  loadGruntTasks(grunt);
 
   // Time how long tasks take. Can help when optimizing build times
-  require('time-grunt')(grunt);
+  timeGrunt(grunt);
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -16,7 +21,7 @@ module.exports = function (grunt) {
     jshint: {
       options: {
         jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish')
+        reporter: jsHintStylish
       },
       all: [
         '*.js',
@@ -33,7 +38,7 @@ module.exports = function (grunt) {
         ],
         tasks: [
           'test'
-        ],
+        ]
       }
     },
 
@@ -67,7 +72,7 @@ module.exports = function (grunt) {
         coverageReporter: {
           dir: 'coverage',
           reporters: [
-            { type: 'lcov', subdir: 'report-lcov' },
+            { type: 'lcov', subdir: 'report-lcov' }
           ]
         }
       }
