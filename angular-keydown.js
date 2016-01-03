@@ -24,33 +24,33 @@ function Keydown($document){
     });
 
     var self = this;
-    function keyHandler(key, isKeydown){
+    function keyHandler(key, isKeyDown){
         var index = self.pressed.indexOf(key);
 
-        if (isKeydown === (-1 !== index)) {
+        if (isKeyDown === (-1 !== index)) {
             return;
-        } else if (isKeydown) {
+        } else if (isKeyDown) {
             self.pressed.push(key);
         } else {
             self.pressed.splice(index, 1);
         }
 
         switch(key){
-            case 16: self.shift = isKeydown; break;
-            case 17: self.ctrl = isKeydown; break;
-            case 18: self.alt = isKeydown; break;
-            case 38: self.up = isKeydown; break;
-            case 40: self.down = isKeydown; break;
-            case 37: self.left = isKeydown; break;
-            case 39: self.right = isKeydown; break;
-            case 33: self.pgUp = isKeydown; break;
-            case 34: self.pgDown = isKeydown; break;
-            case 32: self.space = isKeydown; break;
-            case 13: self.enter = isKeydown; break;
-            case 27: self.escape = isKeydown; break;
-            case 9: self.tab = isKeydown; break;
+            case 16: self.shift = isKeyDown; break;
+            case 17: self.ctrl = isKeyDown; break;
+            case 18: self.alt = isKeyDown; break;
+            case 38: self.up = isKeyDown; break;
+            case 40: self.down = isKeyDown; break;
+            case 37: self.left = isKeyDown; break;
+            case 39: self.right = isKeyDown; break;
+            case 33: self.pgUp = isKeyDown; break;
+            case 34: self.pgDown = isKeyDown; break;
+            case 32: self.space = isKeyDown; break;
+            case 13: self.enter = isKeyDown; break;
+            case 27: self.escape = isKeyDown; break;
+            case 9: self.tab = isKeyDown; break;
             default:
-                self.others[key] = isKeydown;
+                self.others[key] = isKeyDown;
         }
     }
 
